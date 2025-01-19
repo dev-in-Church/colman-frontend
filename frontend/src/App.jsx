@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer";
+import Home from "./components/home";
+import Services from "./components/services";
 
 function App() {
   return (
@@ -8,11 +10,9 @@ function App() {
       {/*Navbar */}
       <Navbar />
       {/* Other content*/}
-      <main className="p-4 ">
-        <h1 className="text-2xl font-bold ">Welcome to Colman</h1>
-        <p className="mt-2 text-gray-700 ">
-          This is a Software developmant company.
-        </p>
+      <main>
+        <Home />
+        <Services />
       </main>
       <Footer />
     </div>
