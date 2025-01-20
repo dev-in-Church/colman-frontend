@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaMobileAlt, FaPaintBrush } from "react-icons/fa"; // Importing icons
+import {
+  FaLaptopCode,
+  FaMobileAlt,
+  FaPaintBrush,
+  FaCloud,
+} from "react-icons/fa";
 
 const Services = () => {
   return (
@@ -19,7 +24,7 @@ const Services = () => {
         </motion.h2>
 
         {/* Service Cards */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
           {/* Service 1: Web Development */}
           <motion.div
             className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
@@ -93,6 +98,32 @@ const Services = () => {
             >
               Craft a Beautiful Experience
             </a>
+          </motion.div>
+          {/* Service 5 */}
+          <motion.div
+            className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            <div className="flex flex-col justify-center items-center mb-6">
+              <div className="text-blue-600 text-4xl mb-6">
+                <FaCloud className="mr-2" />
+              </div>
+              <h4 className="text-2xl font-semibold text-gray-800 mb-4">
+                Web Hoisting
+              </h4>
+              <p className="text-gray-600">
+                We provide secure and scalable cloud infrastructure solutions
+                for your business.
+              </p>
+              <a
+                href="#contact"
+                className="text-blue-600 hover:text-blue-700 font-semibold underline mt-6"
+              >
+                Explore Cloud Services
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
