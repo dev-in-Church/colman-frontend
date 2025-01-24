@@ -4,18 +4,18 @@ import colaman from "../assets/colman.jpg";
 
 const About = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Animation happens only once when the section is in view
-    threshold: 0.2, // Triggers when 20% of the section is in view
+    triggerOnce: true, 
+    threshold: 0.2, 
   });
 
   return (
     <section
       id="about"
       className="py-16 bg-gradient-to-b from-blue-50 to-white"
-      ref={ref} // Reference the section to detect scroll visibility
+      ref={ref} 
     >
       <div className="max-w-screen-xl mx-auto px-6 text-center">
-        {/* Section Title */}
+      
         <motion.h2
           className="text-3xl lg:text-5xl font-extrabold text-blue-600 mb-12 tracking-wide"
           initial={{ opacity: 0, y: 50 }}
@@ -28,7 +28,7 @@ const About = () => {
           About Colman Technologies
         </motion.h2>
 
-        {/* Company Overview */}
+        
         <div className="lg:flex lg:justify-between items-center space-y-8 lg:space-y-0">
           <motion.div
             className="lg:w-1/2"
@@ -54,7 +54,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Image */}
+        
           <motion.div
             className="lg:w-1/3"
             initial={{ opacity: 0, x: 100 }}
@@ -145,7 +145,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Call-to-Action */}
+        
         <motion.div
           className="mt-16"
           initial={{ opacity: 0 }}
