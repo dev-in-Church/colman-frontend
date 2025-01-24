@@ -155,7 +155,7 @@ const About = () => {
           transition={{ duration: 1, delay: 1.4 }}
         >
           <a
-            href="#contact"
+            href="/contact"
             className="inline-block text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg text-lg font-semibold shadow-lg transition-all"
           >
             Get In Touch

@@ -34,16 +34,29 @@ function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 ">
-          <li className="hover:text-gray-500 cursor-pointer text-transform: uppercase">
+          <li
+            className="hover:text-gray-500 cursor-pointer text-transform: uppercase"
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
             Home
           </li>
-          <li className="hover:text-gray-500 cursor-pointer text-transform: uppercase">
+          <li
+            className="hover:text-gray-500 cursor-pointer text-transform: uppercase"
+            onClick={() => {
+              window.location.href = "#about";
+            }}
+          >
             About
           </li>
           <li className="hover:text-gray-500 cursor-pointer text-transform: uppercase">
             Services
           </li>
-          <li className="hover:text-gray-500 cursor-pointer text-transform: uppercase">
+          <li
+            className="hover:text-gray-500 cursor-pointer text-transform: uppercase"
+            onClick={() => (window.location.href = "/contact")}
+          >
             Contact
           </li>
         </ul>
@@ -85,12 +98,18 @@ function Navbar() {
           <li
             className="cursor-pointer
           hover:bg-white hover:text-black p-2 rounded"
+            onClick={() => {
+              window.location.href = "/";
+            }}
           >
             Home
           </li>
           <li
             className="cursor-pointer
           hover:bg-white hover:text-black p-2 rounded"
+            onClick={() => {
+              window.location.href = "/about";
+            }}
           >
             About
           </li>
@@ -103,6 +122,7 @@ function Navbar() {
           <li
             className="cursor-pointer
           hover:bg-white hover:text-black p-2 rounded"
+            onClick={() => (window.location.href = "/contact")}
           >
             Contact
           </li>
