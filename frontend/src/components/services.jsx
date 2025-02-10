@@ -43,7 +43,7 @@ const Services = () => {
               tailored to meet your business needs.
             </p>
             <a
-              href="#contact"
+              href="/contact"
               className="text-blue-600 hover:text-blue-700 font-semibold underline"
             >
               Let's Build Together
@@ -68,7 +68,7 @@ const Services = () => {
               to your customers' needs and enhance engagement.
             </p>
             <a
-              href="#contact"
+              href="/contact"
               className="text-blue-600 hover:text-blue-700 font-semibold underline"
             >
               Start Your App Journey
@@ -93,7 +93,7 @@ const Services = () => {
               user experience and streamline navigation.
             </p>
             <a
-              href="#contact"
+              href="/contact"
               className="text-blue-600 hover:text-blue-700 font-semibold underline"
             >
               Craft a Beautiful Experience
@@ -111,14 +111,14 @@ const Services = () => {
                 <FaCloud className="mr-2" />
               </div>
               <h4 className="text-2xl font-semibold text-gray-800 mb-4">
-                Web Hoisting
+                Web Hosting
               </h4>
               <p className="text-gray-600">
                 We provide secure and scalable cloud infrastructure solutions
                 for your business.
               </p>
               <a
-                href="#contact"
+                href="/contact"
                 className="text-blue-600 hover:text-blue-700 font-semibold underline mt-6"
               >
                 Explore Cloud Services

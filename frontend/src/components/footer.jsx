@@ -7,104 +7,46 @@ import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaPaypal,
-  FaCcVisa,
-  FaCcMastercard,
-  FaCcDiscover,
-  FaCcAmex,
-  FaCcPaypal,
-  FaCcStripe,
+  FaCodeBranch,
+  FaBook,
+  FaBriefcase,
+  FaLightbulb,
 } from "react-icons/fa";
-const Footer = () => {
-  // Inline Styles
-  const styles = {
-    container: {
-      padding: "20px",
-      paddingTop: "1.5rem",
-      fontFamily: "Arial, sans-serif",
-    },
-    info: {
-      textAlign: "left",
-      marginBottom: "20px",
-    },
-    infoItem: {
-      display: "flex",
-      alignItems: "center",
-      marginBottom: "15px",
-    },
-    icon: {
-      fontSize: "20px",
-      color: "#007BFF",
-      marginRight: "10px",
-    },
-    link: {
-      textDecoration: "none",
-      color: "#007BFF",
-      fontWeight: "bold",
-    },
-    cta: {
-      marginTop: "20px",
-    },
-    button: {
-      textDecoration: "none",
-      color: "#fff",
-      backgroundColor: "#007BFF",
-      padding: "10px 20px",
-      borderRadius: "5px",
-      fontWeight: "bold",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      transition: "background-color 0.3s ease",
-    },
-  };
 
+const Footer = () => {
   return (
-    <footer
-      className="footer max-w-full bg-gray-800 text-white 
-      overflow-hidden
-    "
-    >
-      <div className="container p-4 sm:grid sm:grid-cols-2 md:grid-cols-4 gap-4 justify-items-center   ">
-        <div style={styles.container}>
-          <div style={styles.info}>
-            {/* Address */}
-            <div style={styles.infoItem}>
-              <FaMapMarkerAlt style={styles.icon} />
-              <p>Eldoret,Kenya</p>
-            </div>
-            {/* Phone */}
-            <div style={styles.infoItem}>
-              <FaPhone style={styles.icon} />
-              <p>
-                <a href="tel:+1234567890" style={styles.link}>
-                  +1 (234) 567-890
-                </a>
-              </p>
-            </div>
-            {/* Email */}
-            <div style={styles.infoItem}>
-              <FaEnvelope style={styles.icon} />
-              <p>
-                <a href="mailto:contact@company.com" style={styles.link}>
-                  colman@company.com
-                </a>
-              </p>
-            </div>
+    <footer className="bg-gray-800 text-white overflow-hidden">
+      <div className="container p-4 sm:grid sm:grid-cols-2 md:grid-cols-4 gap-4 justify-items-center">
+        {/* Contact Info */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold mb-4 uppercase">Contact Us</h3>
+          <div className="mb-3 flex items-center">
+            <FaMapMarkerAlt className="text-blue-500 mr-2" />
+            <p>Eldoret, Kenya</p>
           </div>
-          {/* Contact Form Link */}
-          <div style={styles.cta}>
-            <a href="/contact" style={styles.button}>
-              Contact Us
+          <div className="mb-3 flex items-center">
+            <FaPhone className="text-blue-500 mr-2" />
+            <a href="tel:+1234567890" className="hover:text-blue-400">
+              +1 (234) 567-890
             </a>
           </div>
-        </div>
-        {/* Navigation Links */}
-        <div>
-          <h3
-            className="text-lg font-bold text-white mb-4 pt-6
-          text-transform:uppercase"
+          <div className="mb-3 flex items-center">
+            <FaEnvelope className="text-blue-500 mr-2" />
+            <a href="mailto:colman@company.com" className="hover:text-blue-400">
+              colman@company.com
+            </a>
+          </div>
+          <a
+            href="/contact"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block mt-3"
           >
-            Quick Links
-          </h3>
+            Get in Touch
+          </a>
+        </div>
+
+        {/* Quick Links */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold mb-4 uppercase">Quick Links</h3>
           <ul className="space-y-2">
             <li>
               <a href="/" className="hover:text-blue-400">
@@ -112,7 +54,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/about" className="hover:text-blue-400">
+              <a href="#about" className="hover:text-blue-400">
                 About Us
               </a>
             </li>
@@ -133,105 +75,62 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        {/* Payment Methods */}
-        <div>
-          <h3
-            className="text-lg font-bold text-white mb-4 pt-6
-          text-transform:uppercase"
-          >
-            We accept the following Payment Methods
-          </h3>
-          <div className="flex flex-col justify-center items-center ">
-            <div>
-              {" "}
-              <FaCcPaypal className="text-3xl text-blue-700" />
-            </div>
 
-            <div>
-              <FaCcVisa className="text-3xl text-blue-700" />
-            </div>
-            <div>
-              {" "}
-              <FaCcMastercard className="text-3xl text-blue-700" />
-            </div>
-            <div>
-              {" "}
-              <FaCcDiscover className="text-3xl text-blue-700" />
-            </div>
-            <div>
-              {" "}
-              <FaCcAmex className="text-3xl text-blue-700" />
-            </div>
-
-            <div>
-              {" "}
-              <FaCcStripe className="text-3xl text-blue-700" />
-            </div>
-          </div>
-        </div>
-        {/* Language and Accessibility Options */}
-        <div>
-          <h3 className="text-lg font-bold text-white  p-6 mb-4">Options</h3>
-          <div className="mb-4">
-            <label
-              htmlFor="language-select"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Choose Language:
-            </label>
-            <select
-              id="language-select"
-              className="mt-2 w-full bg-gray-700 text-white rounded-md p-2"
-            >
-              <option value="en">English</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-              <option value="zh">Chinese</option>
-            </select>
-          </div>
+        {/* Tech Solutions */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold mb-4 uppercase">Tech Solutions</h3>
           <ul className="space-y-2">
-            <li>
-              <a href="/accessibility" className="hover:text-blue-400">
-                Accessibility Statement
+            <li className="flex items-center">
+              <FaCodeBranch className="text-blue-500 mr-2" />
+              <a href="/opensource" className="hover:text-blue-400">
+                Open Source Contributions
               </a>
             </li>
-            <li>
-              <a href="/help" className="hover:text-blue-400">
-                Help Center
+            <li className="flex items-center">
+              <FaBook className="text-blue-500 mr-2" />
+              <a href="/docs" className="hover:text-blue-400">
+                API Documentation
               </a>
             </li>
-            <li>
-              <a href="/feedback" className="hover:text-blue-400">
-                Feedback
+            <li className="flex items-center">
+              <FaLightbulb className="text-blue-500 mr-2" />
+              <a href="/blog" className="hover:text-blue-400">
+                Tech Blog
+              </a>
+            </li>
+            <li className="flex items-center">
+              <FaBriefcase className="text-blue-500 mr-2" />
+              <a href="/careers" className="hover:text-blue-400">
+                Join Our Team
               </a>
             </li>
           </ul>
         </div>
+
+        {/* Why Choose Us */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold mb-4 uppercase">Why Choose Us?</h3>
+          <ul className="space-y-2">
+            <li>🚀 Cutting-Edge Solutions</li>
+            <li>👨‍💻 Experienced Development Team</li>
+            <li>🔒 Secure & Scalable Tech Stacks</li>
+            <li>⏳ 24/7 Support & Maintenance</li>
+          </ul>
+        </div>
       </div>
+
+      {/* Footer Bottom */}
       <div className="container mx-auto px-6">
         <div className="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
-          <div className="flex justify-center space-x-4 bd-top pt-6">
-            <FaFacebook className="text-3xl text-blue-700 hover:cursor-pointer hover:scale-90" />
-            <FaInstagram
-              className="text-3xl text-red-500
-          hover:cursor-pointer hover:scale-90"
-            />
-            <FaTwitter
-              className="text-3xl text-blue-400
-          hover:cursor-pointer hover:scale-90"
-            />
-            <FaYoutube
-              className="text-3xl text-red-600
-          hover:cursor-pointer hover:scale-90"
-            />
-            <FaGithub
-              className="text-3xl text-gray-600
-          hover:cursor-pointer hover:scale-90"
-            />
+          <div className="flex justify-center space-x-4 pt-6">
+            <FaFacebook className="text-3xl text-blue-700 hover:scale-90 cursor-pointer" />
+            <FaInstagram className="text-3xl text-red-500 hover:scale-90 cursor-pointer" />
+            <FaTwitter className="text-3xl text-blue-400 hover:scale-90 cursor-pointer" />
+            <FaYoutube className="text-3xl text-red-600 hover:scale-90 cursor-pointer" />
+            <FaGithub className="text-3xl text-gray-600 hover:scale-90 cursor-pointer" />
           </div>
-          <div className="sm:w-2/3 text-center py-6">
-            <p className="text-sm text-white-700 font-bold mb-2">
+          <div className="text-center py-6">
+            <p className="text-sm font-bold">
               © 2025 by Colman. All rights reserved.
             </p>
           </div>

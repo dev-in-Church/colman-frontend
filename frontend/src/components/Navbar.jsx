@@ -1,23 +1,63 @@
 import React, { useState } from "react";
+import { Terminal } from "lucide-react";
+import {
+  FaLaptopCode,
+  FaMobileAlt,
+  FaPaintBrush,
+  FaCloud,
+} from "react-icons/fa";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <nav className="bg-blue-300 text-gray-800  shadow-md fixed w-full z-30 top-0 ">
-      <div className="container mx-auto flex justify-between items-center p-4 md:p-6  ">
+    <nav className="bg-gradient-to-r from-gray-700 via-blue-900 to-indigo-900 text-white shadow-lg fixed w-full z-50 top-0">
+      <div className="container mx-auto flex justify-between items-center px-4 py-3 md:py-4">
         {/* Logo */}
-        <div className="">
-          <img src="/logo-light.png" alt="Logo" className="h-8" />
+        <div className="flex items-center">
+          <img src="/logo-light.png" alt="Logo" className="h-10 md:h-12" />
         </div>
 
-        {/* Hamburger Icon */}
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6 lg:space-x-8 text-base lg:text-lg">
+          {[
+            { label: "Home", href: "/" },
+            { label: "Services", href: "/services" },
+            {
+              label: "Mobile App Development",
+              href: "/services#mobile-dev",
+              icon: <FaMobileAlt className="ml-2" />,
+            },
+            {
+              label: "Web Development",
+              href: "/services#web-dev",
+              icon: <FaLaptopCode className="ml-2" />,
+            },
+            { label: "Contact", href: "/contact" },
+          ].map(({ label, href, icon }, index) => (
+            <li
+              key={index}
+              className="hover:text-blue-400 transition duration-300 uppercase font-semibold"
+            >
+              <a href={href} className="flex items-center">
+                {label} {icon}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Code Icon for Large Screens */}
+        <Terminal className="w-6 h-6 md:w-8 md:h-8 text-blue-300 hidden sm:block" />
+
+        {/* Hamburger Menu for Mobile & Tablet */}
         <div
           className="md:hidden cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <svg
-            className="w-6 h-6"
+            className="w-7 h-7"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -31,59 +71,30 @@ function Navbar() {
             />
           </svg>
         </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 ">
-          <li
-            className="hover:text-gray-500 cursor-pointer text-transform: uppercase"
-            onClick={() => {
-              window.location.href = "/";
-            }}
-          >
-            Home
-          </li>
-          <li
-            className="hover:text-gray-500 cursor-pointer text-transform: uppercase"
-            onClick={() => {
-              window.location.href = "#about";
-            }}
-          >
-            About
-          </li>
-          <li className="hover:text-gray-500 cursor-pointer text-transform: uppercase">
-            Services
-          </li>
-          <li
-            className="hover:text-gray-500 cursor-pointer text-transform: uppercase"
-            onClick={() => (window.location.href = "/contact")}
-          >
-            Contact
-          </li>
-        </ul>
       </div>
 
-      {/* Overlay */}
+      {/* Mobile Overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0  bg-opacity-50 z-40"
-          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={closeMenu}
         />
       )}
 
-      {/* Mobile/Tablet Menu */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-700 text-white transform ${
+        className={`fixed top-0 right-0 h-full w-72 bg-gray-900 text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        } z-50 transition-transform duration-500 ease-in-out`}
+        } z-50 transition-transform duration-500 ease-in-out overflow-y-auto`}
       >
+        {/* Close Button */}
         <div className="p-4 flex justify-end">
-          <button className="text-white" onClick={() => setMenuOpen(false)}>
+          <button className="text-white" onClick={closeMenu}>
             <svg
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 strokeLinecap="round"
@@ -94,38 +105,42 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        <ul className="flex flex-col space-y-4 p-6">
-          <li
-            className="cursor-pointer
-          hover:bg-white hover:text-black p-2 rounded"
-            onClick={() => {
-              window.location.href = "/";
-            }}
-          >
-            Home
-          </li>
-          <li
-            className="cursor-pointer
-          hover:bg-white hover:text-black p-2 rounded"
-            onClick={() => {
-              window.location.href = "/about";
-            }}
-          >
-            About
-          </li>
-          <li
-            className="cursor-pointer
-          hover:bg-white hover:text-black p-2 rounded"
-          >
-            Services
-          </li>
-          <li
-            className="cursor-pointer
-          hover:bg-white hover:text-black p-2 rounded"
-            onClick={() => (window.location.href = "/contact")}
-          >
-            Contact
-          </li>
+
+        {/* Mobile Menu Links */}
+        <ul className="flex flex-col space-y-4 p-6 text-lg">
+          {[
+            { label: "Home", href: "/" },
+            {
+              label: "Web Development",
+              href: "/services#web-dev",
+              icon: <FaLaptopCode className="ml-2 text-blue-400" />,
+            },
+            {
+              label: "Mobile App Dev",
+              href: "/services#mobile-dev",
+              icon: <FaMobileAlt className="ml-2 text-blue-400" />,
+            },
+            {
+              label: "UI/UX Design",
+              href: "/services#uiux",
+              icon: <FaPaintBrush className="ml-2 text-blue-400" />,
+            },
+            {
+              label: "Cloud Hosting",
+              href: "/services#cloudhosting",
+              icon: <FaCloud className="ml-2 text-blue-400" />,
+            },
+            { label: "Contact", href: "/contact" },
+          ].map(({ label, href, icon }, index) => (
+            <li
+              key={index}
+              className="cursor-pointer hover:bg-blue-700 transition duration-300 p-3 rounded-lg font-semibold"
+            >
+              <a href={href} onClick={closeMenu} className="flex items-center">
+                {label} {icon}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

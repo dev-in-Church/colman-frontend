@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import web from "../assets/image0.jpg";
-import { FaArrowRight } from "react-icons/fa";
+import app from "../assets/app.jpg";
+import uiux from "../assets/uxui.jpg";
+import cloud from "../assets/cloud.jpg"; // Replace with your cloud hosting image
 
 const services = [
   {
     id: 1,
     title: "Web Development",
     description:
-      "We provide full-stack web development services using modern technologies. Our team builds scalable, responsive, and user-friendly web applications tailored to your business needs.",
+      "We build dynamic, scalable, and user-friendly websites using cutting-edge technologies. From e-commerce platforms to custom web applications, we create solutions that drive growth and efficiency.",
+    details:
+      "Our development process includes strategic planning, responsive design, optimized performance, and security enhancements. Whether you need a startup website or a complex enterprise application, we've got you covered.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     icon: web,
   },
@@ -16,88 +22,112 @@ const services = [
     id: 2,
     title: "Web Design",
     description:
-      "Our web design services focus on creating beautiful, intuitive, and responsive user interfaces. We aim to create a seamless user experience that aligns with your brand’s identity.",
+      "Our design philosophy focuses on user experience and aesthetics. We craft visually stunning, intuitive, and high-converting designs that bring your brand to life.",
+    details:
+      "We emphasize seamless navigation, engaging visuals, and a mobile-first approach. Every design is optimized for performance and accessibility, ensuring an outstanding user experience.",
     technologies: ["Figma", "Adobe XD", "Sketch", "Tailwind CSS"],
-    icon: web,
+    icon: uiux,
   },
   {
     id: 3,
     title: "App Development",
     description:
-      "We specialize in developing cross-platform mobile applications for iOS and Android. Whether it’s a native or hybrid app, we ensure that it meets the highest standards of functionality and user experience.",
+      "We develop high-quality mobile applications that deliver seamless experiences across iOS and Android devices. Our expertise ensures smooth performance and intuitive interfaces.",
+    details:
+      "From concept to deployment, we handle UI/UX design, backend development, API integration, and performance optimization to create apps that users love.",
     technologies: ["React Native", "Flutter", "Firebase", "Node.js"],
-    icon: web,
+    icon: app,
   },
   {
     id: 4,
     title: "Cloud Hosting",
     description:
-      "Our cloud hosting services offer scalable, secure, and reliable hosting solutions for your applications. We ensure your websites and apps are hosted on high-performance infrastructure with 24/7 support.",
+      "Our cloud hosting solutions ensure high availability, security, and scalability. We optimize cloud environments for maximum performance and cost efficiency.",
+    details:
+      "We deploy cloud architectures with best practices, including auto-scaling, load balancing, and containerized environments, ensuring seamless performance even under high traffic.",
     technologies: ["AWS", "Google Cloud", "Docker", "Kubernetes"],
-    icon: web,
+    icon: cloud,
   },
 ];
 
-const Blog = () => {
+const TechStack = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200, once: true });
+  }, []);
+
   return (
-    <section id="services" className="py-16 bg-gray-50">
-      <div className="max-w-screen-xl mx-auto px-6">
+    <section id="tech-stack" className="py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Title */}
         <motion.h2
-          className="text-4xl lg:text-5xl font-extrabold text-blue-600 mb-12 tracking-wide text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="text-4xl lg:text-5xl font-extrabold text-center mb-12 tracking-wide text-blue-600 drop-shadow-lg"
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          viewport={{ once: true }}
         >
-          Services
+          Our Technology Stack
         </motion.h2>
 
         {/* Services List */}
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service) => (
-            <motion.div
+        <div className="grid gap-16 w-[90%] mx-auto">
+          {services.map((service, index) => (
+            <div
               key={service.id}
-              className="bg-white overflow-hidden p-6 group  duration-300  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 shadow-lg hover:shadow-xl rounded-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
+              className={`flex flex-col md:flex-row items-center gap-12 ${
+                index % 2 === 0 ? "md:flex-row-reverse" : ""
+              }`}
             >
-              <div>
+              {/* Image with Animation */}
+              <motion.div
+                className="w-full md:w-1/2"
+                initial={{ opacity: 0, x: index % 2 === 0 ? 150 : -150 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="w-full h-72 object-cover mb-4 transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg transform transition duration-300 hover:scale-105"
                   loading="lazy"
                 />
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-blue-600 mb-4">
+              </motion.div>
+
+              {/* Content with Animation */}
+              <motion.div
+                className="w-full md:w-1/2 space-y-4"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <h3 className="text-3xl font-semibold text-blue-500">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <p className="text-gray-700 leading-relaxed">
+                  {service.description}
+                </p>
+                <p className="text-gray-700">{service.details}</p>
 
-                <div className="text-left">
+                {/* Technologies List */}
+                <div className="mt-4">
                   <h4 className="text-xl font-semibold text-blue-600">
-                    Technologies Used
+                    Technologies We Use
                   </h4>
-                  <ul className="list-disc pl-6 mt-2 text-gray-600">
+                  <ul className="flex flex-wrap gap-3 mt-2">
                     {service.technologies.map((tech, index) => (
-                      <li key={index}>{tech}</li>
+                      <li
+                        key={index}
+                        className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition duration-200 hover:bg-gray-200"
+                      >
+                        {tech}
+                      </li>
                     ))}
                   </ul>
                 </div>
-
-                {/* Button to view more details */}
-                <div className="mt-4">
-                  <a
-                    href="#"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
-                  >
-                    Learn More
-                    <FaArrowRight className="ml-2" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -105,4 +135,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default TechStack;

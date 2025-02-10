@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
 import backgroundImage from "../assets/image0.jpg";
-import Footer from "./footer";
 import Portfolio from "./portfolio";
 import Services from "./services";
-import Blog from "./blog";
 import About from "./about";
+import TechStack from "./blog";
 
 const Home = () => {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <section
-        className="relative bg-cover bg-center bg-no-repeat h-[75vh] flex items-center justify-center text-white"
+        className="relative bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center text-white w-full"
         style={{
           backgroundImage:
             "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" +
@@ -21,23 +20,24 @@ const Home = () => {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-gray-800 opacity-80"></div>
 
-        {/* Content */}
+        {/* Hero Content */}
         <motion.div
           className="relative z-10 text-center px-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 4 }}
+          transition={{ duration: 1.5 }} // ✅ Reduced duration for better effect
         >
           <motion.h1
-            className="text-4xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4 sm:mb-6 md:mb-8 leading-tight drop-shadow-lg"
+            className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight drop-shadow-lg"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.5, duration: 4 }}
+            transition={{ delay: 0.5, duration: 1.5 }}
           >
-            Empowering Your Digital Success with Colman
+            Empowering Your Digital Success with{" "}
+            <span className="text-blue-400">Colman</span>
           </motion.h1>
           <motion.p
-            className="text-md sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-300"
+            className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1 }}
@@ -46,20 +46,20 @@ const Home = () => {
             business thrive in the digital world.
           </motion.p>
           <motion.div
-            className="flex justify-center space-x-4 sm:space-x-6"
+            className="flex justify-center space-x-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
             <a
               href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-lg shadow-lg transition transform hover:scale-105"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition hover:scale-105"
             >
               Get Started
             </a>
             <a
               href="#about"
-              className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-lg shadow-lg transition transform hover:scale-105"
+              className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-lg shadow-lg transition hover:scale-105"
             >
               Learn More
             </a>
@@ -85,9 +85,9 @@ const Home = () => {
         </motion.div>
       </section>
       <Services />
-      <Blog />
+      <TechStack />
       <About />
-      <Portfolio />
+      {/* <Portfolio /> */}
     </main>
   );
 };
