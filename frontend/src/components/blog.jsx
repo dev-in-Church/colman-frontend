@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import web from "../assets/image0.jpg";
 import app from "../assets/app.jpg";
 import uiux from "../assets/uxui.jpg";
-import cloud from "../assets/cloud.jpg"; // Replace with your cloud hosting image
+import cloud from "../assets/host.jpg";
 
 const services = [
   {
@@ -94,7 +94,6 @@ const TechStack = () => {
                 />
               </motion.div>
 
-              {/* Content with Animation */}
               <motion.div
                 className="w-full md:w-1/2 space-y-4"
                 initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
