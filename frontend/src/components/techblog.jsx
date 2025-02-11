@@ -3,7 +3,7 @@ import cloudHosting from "../assets/cloud.jpg";
 import blockchain from "../assets/blockchain.jpg";
 import aiTech from "../assets/artificial.jpg";
 import webDev from "../assets/webdev.jpg";
-import uiux from "../assets/uiux.jpg";
+import uiux from "../assets/xuui.jpg";
 
 const blogPosts = [
   {
