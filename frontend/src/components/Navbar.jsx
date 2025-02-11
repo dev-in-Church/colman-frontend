@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <nav className="bg-gradient-to-r from-gray-700 via-blue-900 to-indigo-900 text-white shadow-lg fixed w-full z-50 top-0">
-      <div className="container mx-auto flex justify-between items-center px-4 py-3 md:py-4">
+      <div className="container mx-auto flex items-center justify-between w-full px-6 py-4 md:px-8 lg:px-12 md:flex-row md:justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <img src="/logo-light.png" alt="Logo" className="h-10 md:h-12" />
@@ -26,7 +26,7 @@ function Navbar() {
             { label: "Home", href: "/" },
             { label: "Services", href: "/services" },
             {
-              label: "Mobile App Development",
+              label: "Mobile App Dev",
               href: "/services#mobile-dev",
               icon: <FaMobileAlt className="ml-2" />,
             },
@@ -49,9 +49,9 @@ function Navbar() {
         </ul>
 
         {/* Code Icon for Large Screens */}
-        <Terminal className="w-6 h-6 md:w-8 md:h-8 text-blue-300 hidden sm:block" />
+        <Terminal className="w-6 h-6 md:w-8 md:h-8 text-blue-300 hidden lg:block" />
 
-        {/* Hamburger Menu for Mobile & Tablet */}
+        {/* Hamburger Menu for Mobile & Small Tablets Only */}
         <div
           className="md:hidden cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -85,7 +85,7 @@ function Navbar() {
       <div
         className={`fixed top-0 right-0 h-full w-72 bg-gray-900 text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        } z-50 transition-transform duration-500 ease-in-out overflow-y-auto`}
+        } z-50 transition-transform duration-500 ease-in-out overflow-y-auto md:hidden`}
       >
         {/* Close Button */}
         <div className="p-4 flex justify-end">
